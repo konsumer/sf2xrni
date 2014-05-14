@@ -83,7 +83,8 @@ namespace Commons.Music.Sf2Xrni
 				Console.WriteLine ("Applied filer: " + filter);
 
 			foreach (var file in files) {
-				var path = Path.ChangeExtension (file, "");
+				string extension = System.IO.Path.GetExtension(file);
+				string path = file.Substring(0, file.Length - extension.Length);
 				if (!Directory.Exists (path))
 					Directory.CreateDirectory (path);
 				var sf2xrni = new Sf2XrniStreamingConverter (path);
