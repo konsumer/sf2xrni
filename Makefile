@@ -1,7 +1,7 @@
 SOURCES=sf2xrni.cs
 
 sf2xrni.exe : $(SOURCES)
-	csc -platform:x86 -r:NAudio.dll -r:NRenoiseTools.dll $(SOURCES) -debug
+	mcs -platform:x86 -r:NAudio.dll -r:NRenoiseTools.dll $(SOURCES) -debug
 
 clean:
 	rm sf2xrni.exe
