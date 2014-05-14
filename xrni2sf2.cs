@@ -29,11 +29,14 @@ namespace Commons.Music.Xrni2Sf2
 			}
 
 			foreach (var file in files) {
-				string extension = System.IO.Path.GetExtension(file);
-				string path = file.Substring(0, file.Length - extension.Length);
+				var path = Path.GetFileNameWithoutExtension(file);
 				if (!Directory.Exists (path))
 					Directory.CreateDirectory (path);
+				var instrument = new XInstrument();
+            	instrument.Load(file);
 			}
+
+
 
 			return 0;
 		}
